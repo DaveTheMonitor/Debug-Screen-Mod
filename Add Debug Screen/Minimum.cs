@@ -12,7 +12,7 @@ namespace DebugScreenMod
         bool holdingDebugKey = false;
         int debugScreen = 0;
         float debugScale = 0.9f;
-        SpriteBatchSafe debugSpriteBatch = new SpriteBatchSafe(CoreGlobals.GraphicsDevice);
+        SpriteBatchSafe debugSpriteBatch = CoreGlobals.SpriteBatch;
         SpriteFont debugFont = Globals1.FontConsolas;
 
         void ITMPlugin.PlayerJoined(ITMPlayer player) { }
