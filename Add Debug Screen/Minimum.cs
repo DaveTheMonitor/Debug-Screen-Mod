@@ -24,12 +24,14 @@ namespace DebugScreenMod
         bool ITMPlugin.HandleInput(ITMPlayer player)
         {
             bool handledInput = false;
+            // Toggle the first Debug Screen with F5.
             if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F5))
             {
                 if (!holdingDebugKey) debugScreen = debugScreen == 1 ? 0 : 1;
                 holdingDebugKey = true;
                 handledInput = true;
             }
+            else holdingDebugKey = false;
             return handledInput;
         }
         
@@ -43,13 +45,13 @@ namespace DebugScreenMod
                     string[] debugInfo =
                     {
                         "Add Debug Lines here",
-                        $"Include values with string interpolation: {debugScale}",
+                        $"Include variables with string interpolation: {debugScale}",
                     };
                     DebugMod.DrawDebugHud(debugInfo, debugSpriteBatch, debugFont, debugScale);
                 }
                 if (debugScreen == 2)
                 {
-                    // Use other values to add other menus.
+                    // Use other debugScreen values to add other menus. Of course, you need to add a way to toggle them as well.
                 }
                 debugSpriteBatch.End();
             }
