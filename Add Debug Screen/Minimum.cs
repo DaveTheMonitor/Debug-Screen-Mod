@@ -3,6 +3,7 @@ using StudioForge.TotalMiner.API;
 using StudioForge.TotalMiner;
 using StudioForge.Engine.Core;
 using StudioForge.Engine;
+using DebugScreenMod;
 
 namespace DebugScreenMod
 {
