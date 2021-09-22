@@ -13,12 +13,14 @@ namespace DebugScreenMod
         float debugScale = 0.9f;
         SpriteBatchSafe debugSpriteBatch = new SpriteBatchSafe(CoreGlobals.GraphicsDevice);
         SpriteFont debugFont = Globals1.FontConsolas;
+        
         void ITMPlugin.PlayerJoined(ITMPlayer player) { }
         void ITMPlugin.PlayerLeft(ITMPlayer player) { }
         void ITMPlugin.WorldSaved(int version) { }
         void ITMPlugin.Initialize(ITMPluginManager mgr, string path) { }
         void ITMPlugin.InitializeGame(ITMGame game) { }
         void ITMPlugin.UnloadMod() { }
+        
         bool ITMPlugin.HandleInput(ITMPlayer player)
         {
             bool handledInput = false;
@@ -30,6 +32,7 @@ namespace DebugScreenMod
             }
             return handledInput;
         }
+        
         void ITMPlugin.Draw(ITMPlayer player, ITMPlayer virtualPlayer)
         {
             if (debugScreen > 0)
@@ -51,6 +54,7 @@ namespace DebugScreenMod
                 debugSpriteBatch.End();
             }
         }
+        
         void ITMPlugin.Update() { }
         void ITMPlugin.Update(ITMPlayer player) { }
     }
