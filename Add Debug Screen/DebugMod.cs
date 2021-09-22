@@ -8,7 +8,7 @@ using StudioForge.Engine.Core;
 namespace DebugScreenMod
 {
     /// <summary>
-    /// Debug Screen mod by Dave The Monitor for use with debugging. Mod creators, feel free to use this in your mod for debugging.
+    /// Debug Screen mod by Dave The Monitor for use with debugging. If you're a mod creator, feel free to use this in your mod for debugging.
     /// </summary>
     public class DebugMod
     {
