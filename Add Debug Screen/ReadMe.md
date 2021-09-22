@@ -4,8 +4,7 @@ Copy the file "DebugMod.cs" to your mod project, and copy the code in ITMPlugin.
 
 DebugMod Methods:
 
-**DebugMod.FriendlyPoint(Vector3 point)**
-
+DebugMod.FriendlyPoint(Vector3 point)
 Returns a simplified string of the Vector3. The simplified string removes the brackets and XYZ.
 new Vector3(10, 20, 30).ToString() returns "{X:10, Y:20, Z:30}"
 DebugMod.FriendlyPoint(new Vector3(10, 20, 30)) returns "10, 20, 30"
