@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 using StudioForge.TotalMiner.API;
 using StudioForge.TotalMiner;
 using StudioForge.Engine.Core;
@@ -9,7 +11,6 @@ namespace DebugScreenMod
 {
     public class DebugScreenPlugin : ITMPlugin
     {
-        bool holdingDebugKey = false;
         int debugScreen = 0;
         float debugScale = 0.9f;
         char separatorChar = '|';
@@ -36,34 +37,29 @@ namespace DebugScreenMod
         void ITMPlugin.UnloadMod() { }
         bool ITMPlugin.HandleInput(ITMPlayer player)
         {
-            bool handledInput = false;
-            if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F5))
+            if (InputManager.IsKeyPressedNew(player.PlayerIndex, Keys.F2))
             {
-                if (!holdingDebugKey) debugScreen = debugScreen == 1 ? 0 : 1;
-                holdingDebugKey = true;
-                handledInput = true;
+                debugScreen = debugScreen == 4 ? 0 : 4;
+                return true;
             }
-            else if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F6))
+            else if (InputManager.IsKeyPressedNew(player.PlayerIndex, Keys.F5))
             {
-                if (!holdingDebugKey) debugScreen = debugScreen == 2 ? 0 : 2;
-                holdingDebugKey = true;
-                handledInput = true;
+                debugScreen = debugScreen == 1 ? 0 : 1;
+                return true;
             }
-            else if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F7))
+            else if (InputManager.IsKeyPressedNew(player.PlayerIndex, Keys.F6))
             {
-                if (!holdingDebugKey) debugScreen = debugScreen == 3 ? 0 : 3;
-                holdingDebugKey = true;
-                handledInput = true;
+                debugScreen = debugScreen == 2 ? 0 : 2;
+                return true;
             }
-            else if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F4))
+            else if (InputManager.IsKeyPressedNew(player.PlayerIndex, Keys.F7))
             {
-                if (!holdingDebugKey) debugScreen = debugScreen == 4 ? 0 : 4;
-                holdingDebugKey = true;
-                handledInput = true;
+                debugScreen = debugScreen == 3 ? 0 : 3;
+                return true;
             }
-            else holdingDebugKey = false;
-            return handledInput;
+            return true;
         }
+
         void ITMPlugin.Draw(ITMPlayer player, ITMPlayer virtualPlayer)
         {
             if (debugScreen > 0)
