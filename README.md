@@ -8,3 +8,5 @@ The source code includes a file named "DebugMod.cs" that contains the methods th
 You can use the Debug Screen for your mod with or without credit to me.
 
 Note: Unfortunately the Consolas font in Total Miner isn't actually monospaced, so the width of boxes might change rapidly.
+
+I'm new to C#, so if you have any suggestions or tips, let me know. You can message me on Discord if you're in the Total Miner Discord server. Dave The Monitor#6212
