@@ -1,15 +1,15 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 using StudioForge.TotalMiner.API;
 using StudioForge.TotalMiner;
 using StudioForge.Engine.Core;
 using StudioForge.Engine;
-using DebugScreenMod;
 
 namespace DebugScreenMod
 {
-    public class DebugScreenPlugin : ITMPlugin
+    public class DebugScreenModPlugin : ITMPlugin
     {
-        bool holdingDebugKey = false;
         int debugScreen = 0;
         float debugScale = 0.9f;
         SpriteBatchSafe debugSpriteBatch = CoreGlobals.SpriteBatch;
@@ -24,15 +24,22 @@ namespace DebugScreenMod
 
         bool ITMPlugin.HandleInput(ITMPlayer player)
         {
-            bool handledInput = false;
-            if (InputManager.IsKeyPressed(player.PlayerIndex, Microsoft.Xna.Framework.Input.Keys.F5))
-            {
-                if (!holdingDebugKey) debugScreen = debugScreen == 1 ? 0 : 1;
-                holdingDebugKey = true;
-                handledInput = true;
-            }
-            else holdingDebugKey = false;
+            bool handledInput = HandledDebugInput(player.PlayerIndex);
+
+            // If your mod has input, it can go here.
+            // If not, just use return HandleDebugInput(player.PlayerIndex);
+
             return handledInput;
+        }
+
+        bool HandledDebugInput(PlayerIndex playerIndex)
+        {
+            if (InputManager.IsKeyPressedNew(playerIndex, Keys.F5))
+            {
+                debugScreen = debugScreen == 1 ? 0 : 1;
+                return true;
+            }
+            return false;
         }
 
         void ITMPlugin.Draw(ITMPlayer player, ITMPlayer virtualPlayer)
